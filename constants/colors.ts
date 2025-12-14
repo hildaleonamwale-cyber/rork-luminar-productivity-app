@@ -1,19 +1,24 @@
 export default {
   white: '#FFFFFF',
   background: '#FFFFFF',
-  softPurple: '#F6F8FF',
-  primary: '#C6C9FF',
-  accent: '#FFCBCF',
+  pureWhite: '#FFFFFF',
+  offWhite: '#FAFAFA',
+  lightGray: '#F5F5F5',
+  softPurple: '#FAF9F8',
+  primary: '#DA9381',
+  accent: '#DA9381',
   text: '#1A1A1A',
   textSecondary: '#6B7280',
-  shadowColor: '#8B92BE',
+  textTertiary: '#9CA3AF',
+  border: '#E5E7EB',
+  shadowColor: '#000000',
   
   categoryColors: {
-    work: '#FF4D0C',
+    work: '#DA9381',
     personal: '#8E94FF',
     fitness: '#9BD24F',
     learning: '#FFA8AF',
   },
   
-  orange: '#FF9F43',
+  orange: '#DA9381',
 };
