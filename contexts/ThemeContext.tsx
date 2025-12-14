@@ -18,7 +18,7 @@ export interface ThemeColors {
 }
 
 export const THEME_PRESETS: ThemeColors[] = [
-  { primary: '#DA9381', secondary: '#E5A997', accent: '#F0BFAD' },
+  { primary: '#FF4D0C', secondary: '#FF8A5B', accent: '#FFA8AF' },
   { primary: '#735DFF', secondary: '#9B8BFF', accent: '#C6C9FF' },
   { primary: '#10B981', secondary: '#34D399', accent: '#6EE7B7' },
   { primary: '#F59E0B', secondary: '#FBBF24', accent: '#FCD34D' },
