@@ -41,6 +41,8 @@ export default function CustomTabBar({ state, descriptors, navigation }: CustomT
             };
 
             const Icon = icons[route.name as keyof typeof icons];
+            
+            if (!Icon) return null;
 
             return (
               <TouchableOpacity
