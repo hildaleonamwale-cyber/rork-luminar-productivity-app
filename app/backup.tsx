@@ -6,7 +6,6 @@ import { Download, Upload, Clock, Cloud, Database, CheckCircle2, ChevronLeft } f
 import { useTheme } from '@/contexts/ThemeContext';
 import { useBackup } from '@/contexts/BackupContext';
 import ConfirmModal from '@/components/ConfirmModal';
-import Colors from '@/constants/colors';
 
 export default function BackupScreen() {
   const router = useRouter();
@@ -84,14 +83,14 @@ export default function BackupScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+      <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
       <Stack.Screen
         options={{
           headerShown: false,
         }}
       />
 
-      <View style={[styles.topBarBackground, { backgroundColor: '#FFFFFF', shadowColor: '#000' }]}>
+      <View style={[styles.topBarBackground, { backgroundColor: colors.primary, shadowColor: colors.primary }]}>
         <SafeAreaView edges={['top']} style={styles.safeArea}>
           <View style={styles.header}>
             <TouchableOpacity
@@ -99,9 +98,9 @@ export default function BackupScreen() {
               onPress={() => router.back()}
               activeOpacity={0.7}
             >
-              <ChevronLeft color={colors.primary} size={28} strokeWidth={2.5} />
+              <ChevronLeft color="#FFFFFF" size={28} strokeWidth={2.5} />
             </TouchableOpacity>
-            <Text style={[styles.headerTitle, { color: Colors.text }]}>Backup & Restore</Text>
+            <Text style={styles.headerTitle}>Backup & Restore</Text>
             <View style={styles.headerSpacer} />
           </View>
         </SafeAreaView>

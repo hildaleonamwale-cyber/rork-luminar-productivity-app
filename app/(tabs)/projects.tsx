@@ -8,7 +8,6 @@ import {
   Animated,
   Modal,
   Pressable,
-  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Plus, FolderKanban, TrendingUp, Edit3, X } from 'lucide-react-native';
@@ -99,29 +98,28 @@ export default function ProjectsScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      <View style={[styles.topBarBackground, { backgroundColor: '#FFFFFF', shadowColor: '#000' }]}>
+      <View style={[styles.topBarBackground, { backgroundColor: themeColors.primary, shadowColor: themeColors.primary }]}>
         <SafeAreaView edges={['top']} style={styles.safeArea}>
           <View style={styles.header}>
             <View style={styles.titleRow}>
-              <Text style={[styles.headerTitle, { color: Colors.text }]}>Projects</Text>
+              <Text style={styles.headerTitle}>Projects</Text>
               <TouchableOpacity
                 style={styles.addButtonHeader}
                 onPress={() => router.push('/add-project')}
                 activeOpacity={0.7}
               >
-                <Plus color={themeColors.primary} size={24} strokeWidth={2.5} />
+                <Plus color={Colors.white} size={24} strokeWidth={2.5} />
               </TouchableOpacity>
             </View>
             <View style={styles.statsRow}>
               <View style={styles.statItem}>
-                <Text style={[styles.statValue, { color: themeColors.primary }]}>{activeProjects.length}</Text>
-                <Text style={[styles.statLabel, { color: Colors.textSecondary }]}>Active Projects</Text>
+                <Text style={styles.statValue}>{activeProjects.length}</Text>
+                <Text style={styles.statLabel}>Active Projects</Text>
               </View>
               <View style={styles.statDivider} />
               <View style={styles.statItem}>
-                <Text style={[styles.statValue, { color: themeColors.primary }]}>{overallProgress}%</Text>
-                <Text style={[styles.statLabel, { color: Colors.textSecondary }]}>Overall Progress</Text>
+                <Text style={styles.statValue}>{overallProgress}%</Text>
+                <Text style={styles.statLabel}>Overall Progress</Text>
               </View>
             </View>
           </View>
@@ -293,11 +291,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   topBarBackground: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.03,
-    shadowRadius: 4,
-    elevation: 1,
+    borderBottomLeftRadius: 32,
+    borderBottomRightRadius: 32,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    elevation: 8,
   },
   safeArea: {
     paddingHorizontal: 20,
@@ -360,14 +359,14 @@ const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
     backgroundColor: Colors.white,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 4,
     marginBottom: 20,
     shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.04,
-    shadowRadius: 4,
-    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   tab: {
     flex: 1,
@@ -398,16 +397,16 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   projectCard: {
-    borderRadius: 16,
+    borderRadius: 20,
     backgroundColor: Colors.white,
     shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 8,
-    elevation: 1,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
   },
   cardGradient: {
-    borderRadius: 16,
+    borderRadius: 20,
     overflow: 'hidden',
   },
   cardContent: {
@@ -424,7 +423,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 16,
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
   },
 
   projectInfo: {
@@ -467,7 +466,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 12,
     gap: 5,
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
   },
   progressBadgeText: {
     fontSize: 14,
@@ -477,7 +476,7 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 8,
     overflow: 'hidden',
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
   },
   progressFill: {
     height: '100%',
@@ -509,7 +508,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 10,
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
   },
   statusText: {
     fontSize: 12,
@@ -530,16 +529,16 @@ const styles = StyleSheet.create({
   },
   actionModalContent: {
     backgroundColor: Colors.white,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
     paddingHorizontal: 20,
     paddingTop: 24,
     paddingBottom: 40,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
+    shadowOffset: { width: 0, height: -4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 8,
   },
   modalHeader: {
     flexDirection: 'row',

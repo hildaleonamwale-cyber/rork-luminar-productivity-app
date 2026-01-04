@@ -8,7 +8,6 @@ import {
   Modal,
   Pressable,
   Animated,
-  StatusBar,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -317,19 +316,18 @@ export default function TasksScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      <View style={[styles.calendarBackground, { backgroundColor: '#FFFFFF', shadowColor: '#000' }]}>
+      <View style={[styles.calendarBackground, { backgroundColor: themeColors.primary, shadowColor: themeColors.primary }]}>
         <SafeAreaView edges={['top']} style={styles.safeArea}>
           <View style={styles.header}>
             <View style={styles.monthSelector}>
               <TouchableOpacity onPress={() => changeMonth(-1)} activeOpacity={0.7}>
-                <ChevronLeft color={Colors.text} size={24} fill="none" strokeWidth={2.5} />
+                <ChevronLeft color={Colors.white} size={24} fill="none" strokeWidth={2.5} />
               </TouchableOpacity>
-              <Text style={[styles.monthText, { color: Colors.text }]}>
+              <Text style={styles.monthText}>
                 {selectedDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
               </Text>
               <TouchableOpacity onPress={() => changeMonth(1)} activeOpacity={0.7}>
-                <ChevronRight color={Colors.text} size={24} fill="none" strokeWidth={2.5} />
+                <ChevronRight color={Colors.white} size={24} fill="none" strokeWidth={2.5} />
               </TouchableOpacity>
             </View>
           </View>
@@ -347,14 +345,14 @@ export default function TasksScreen() {
               return (
                 <TouchableOpacity
                   key={index}
-                  style={[styles.dateItem, isSelected && [styles.dateItemSelected, { backgroundColor: themeColors.primary }]]}
+                  style={[styles.dateItem, isSelected && styles.dateItemSelected]}
                   onPress={() => setSelectedDate(date)}
                   activeOpacity={0.7}
                 >
-                  <Text style={[styles.dateDay, isSelected && styles.dateTextSelected, !isSelected && { color: Colors.text }]}>
+                  <Text style={[styles.dateDay, isSelected && styles.dateTextSelected, !isSelected && { color: themeColors.primary }]}>
                     {date.toLocaleDateString('en-US', { weekday: 'short' })}
                   </Text>
-                  <Text style={[styles.dateNumber, isSelected && styles.dateTextSelected, !isSelected && { color: Colors.text }]}>
+                  <Text style={[styles.dateNumber, isSelected && styles.dateTextSelected, !isSelected && { color: themeColors.primary }]}>
                     {date.getDate()}
                   </Text>
                   {isToday && !isSelected && <View style={[styles.todayDot, { backgroundColor: themeColors.primary }]} />}
@@ -551,11 +549,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   calendarBackground: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.03,
-    shadowRadius: 4,
-    elevation: 1,
+    borderBottomLeftRadius: 32,
+    borderBottomRightRadius: 32,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    elevation: 8,
   },
   safeArea: {
     paddingHorizontal: 20,
@@ -584,14 +583,14 @@ const styles = StyleSheet.create({
   dateItem: {
     width: 60,
     paddingVertical: 12,
-    borderRadius: 12,
-    backgroundColor: '#F3F4F6',
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     alignItems: 'center',
     shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.04,
-    shadowRadius: 4,
-    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   dateItemSelected: {
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
@@ -626,14 +625,14 @@ const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
     backgroundColor: Colors.white,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 4,
     marginBottom: 20,
     shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.04,
-    shadowRadius: 4,
-    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   tab: {
     flex: 1,
@@ -758,11 +757,10 @@ const styles = StyleSheet.create({
     borderRadius: 29,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
-    elevation: 4,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    elevation: 12,
   },
   addButtonInner: {
     width: '100%',
@@ -789,7 +787,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   input: {
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
@@ -832,7 +830,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   fieldInput: {
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
     borderRadius: 12,
     padding: 16,
     marginBottom: 20,
@@ -869,7 +867,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cancelButton: {
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
   },
   cancelButtonText: {
     fontSize: 16,
@@ -902,13 +900,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 16,
     borderBottomWidth: 1,
-    borderBottomColor: Colors.softPeach,
+    borderBottomColor: Colors.softPurple,
   },
   backButton: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: Colors.softPeach,
+    backgroundColor: Colors.softPurple,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -928,16 +926,16 @@ const styles = StyleSheet.create({
   },
   actionModalContent: {
     backgroundColor: Colors.white,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
     paddingHorizontal: 20,
     paddingTop: 24,
     paddingBottom: 40,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
+    shadowOffset: { width: 0, height: -4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 8,
   },
   actionModalHeader: {
     flexDirection: 'row',
@@ -987,15 +985,17 @@ const styles = StyleSheet.create({
   },
   deleteModal: {
     backgroundColor: Colors.white,
-    borderRadius: 16,
+    borderRadius: 20,
     padding: 24,
     width: '100%',
     maxWidth: 340,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 12,
-    elevation: 2,
+    borderWidth: 2,
+    borderColor: Colors.softPurple,
+    shadowColor: Colors.primary,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.15,
+    shadowRadius: 20,
+    elevation: 8,
   },
   deleteModalTitle: {
     fontSize: 20,

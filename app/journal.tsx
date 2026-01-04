@@ -5,7 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeft, Plus, Edit2 } from 'lucide-react-native';
@@ -31,8 +30,7 @@ export default function JournalScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      <View style={[styles.topBarBackground, { backgroundColor: '#FFFFFF', shadowColor: '#000' }]}>
+      <View style={[styles.topBarBackground, { backgroundColor: themeColors.primary, shadowColor: themeColors.primary }]}>
         <SafeAreaView edges={['top']} style={styles.safeArea}>
           <View style={styles.header}>
             <TouchableOpacity
@@ -40,15 +38,15 @@ export default function JournalScreen() {
               onPress={() => router.back()}
               activeOpacity={0.7}
             >
-              <ArrowLeft color={themeColors.primary} size={24} />
+              <ArrowLeft color={Colors.white} size={24} />
             </TouchableOpacity>
-            <Text style={[styles.headerTitle, { color: Colors.text }]}>Journal</Text>
+            <Text style={styles.headerTitle}>Journal</Text>
             <TouchableOpacity
               style={styles.addButtonHeader}
               onPress={handleAdd}
               activeOpacity={0.7}
             >
-              <Plus color={themeColors.primary} size={24} />
+              <Plus color={Colors.white} size={24} />
             </TouchableOpacity>
           </View>
         </SafeAreaView>
@@ -101,11 +99,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   topBarBackground: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.03,
-    shadowRadius: 4,
-    elevation: 1,
+    borderBottomLeftRadius: 32,
+    borderBottomRightRadius: 32,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    elevation: 8,
   },
   safeArea: {
     paddingHorizontal: 20,

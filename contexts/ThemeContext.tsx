@@ -18,14 +18,14 @@ export interface ThemeColors {
 }
 
 export const THEME_PRESETS: ThemeColors[] = [
-  { primary: '#dea193', secondary: '#e8b5aa', accent: '#f5c7be' },
-  { primary: '#a8c5e8', secondary: '#c2d9f0', accent: '#dce8f7' },
-  { primary: '#98d8a8', secondary: '#b4e4be', accent: '#d0f0d7' },
-  { primary: '#f5c089', secondary: '#f8d4a7', accent: '#fbe4c4' },
-  { primary: '#c998d8', secondary: '#dab4e4', accent: '#e8d0f0' },
-  { primary: '#f7a3a3', secondary: '#fac0c0', accent: '#fcd9d9' },
-  { primary: '#89d4f5', secondary: '#a7e0f8', accent: '#c4ebfb' },
-  { primary: '#d8c498', secondary: '#e4d4b4', accent: '#f0e4d0' },
+  { primary: '#FF4D0C', secondary: '#FF8A5B', accent: '#FFA8AF' },
+  { primary: '#735DFF', secondary: '#9B8BFF', accent: '#C6C9FF' },
+  { primary: '#10B981', secondary: '#34D399', accent: '#6EE7B7' },
+  { primary: '#F59E0B', secondary: '#FBBF24', accent: '#FCD34D' },
+  { primary: '#EC4899', secondary: '#F472B6', accent: '#F9A8D4' },
+  { primary: '#3B82F6', secondary: '#60A5FA', accent: '#93C5FD' },
+  { primary: '#8B5CF6', secondary: '#A78BFA', accent: '#C4B5FD' },
+  { primary: '#EF4444', secondary: '#F87171', accent: '#FCA5A5' },
 ];
 
 const STORAGE_KEY = '@theme_colors';

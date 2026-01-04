@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
   Dimensions,
   ImageBackground,
-  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { 
   Target, 
+  TrendingUp,
   Activity,
   BarChart3,
   Sparkles,
@@ -133,9 +133,9 @@ export default function DashboardScreen() {
     return Object.entries(categories).map(([name, count]) => ({
       name,
       count,
-      color: Colors.categoryColors[name as keyof typeof Colors.categoryColors] || themeColors.primary,
+      color: Colors.categoryColors[name as keyof typeof Colors.categoryColors] || '#735DFF',
     }));
-  }, [todayTasks, themeColors]);
+  }, [todayTasks]);
 
   const backgroundComponent = themeColors.backgroundImage ? (
     <ImageBackground 
@@ -149,24 +149,23 @@ export default function DashboardScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       {backgroundComponent}
-      <View style={[styles.headerWrapper, { backgroundColor: '#FFFFFF' }]}>
-        <SafeAreaView edges={['top']} style={[styles.safeArea, { backgroundColor: '#FFFFFF' }]}>
-          <View style={[styles.header, { backgroundColor: '#FFFFFF' }]}>
+      <View style={[styles.headerWrapper, { backgroundColor: themeColors.primary }]}>
+        <SafeAreaView edges={['top']} style={[styles.safeArea, { backgroundColor: themeColors.primary }]}>
+          <View style={[styles.header, { backgroundColor: themeColors.primary }]}>
             <View>
-              <Text style={[styles.headerSubtitle, { color: Colors.textSecondary }]}>ANALYTICS DASHBOARD</Text>
-              <Text style={[styles.headerTitle, { color: Colors.text }]}>{getGreeting()}, {userName || 'User'}</Text>
+              <Text style={styles.headerSubtitle}>ANALYTICS DASHBOARD</Text>
+              <Text style={styles.headerTitle}>{getGreeting()}, {userName || 'User'}</Text>
             </View>
             <View style={styles.headerButtons}>
               <TouchableOpacity 
-                style={[styles.sparkleButton, { backgroundColor: `${themeColors.primary}15` }]}
+                style={[styles.sparkleButton, { backgroundColor: Colors.white }]}
                 onPress={() => router.push('/settings')}
               >
                 <Sparkles color={themeColors.primary} size={24} strokeWidth={2.5} fill="none" />
               </TouchableOpacity>
               <TouchableOpacity 
-                style={[styles.sparkleButton, { backgroundColor: `${themeColors.primary}15` }]}
+                style={[styles.sparkleButton, { backgroundColor: Colors.white }]}
                 onPress={() => router.push('/journal')}
               >
                 <BookOpen color={themeColors.primary} size={24} strokeWidth={2.5} fill="none" />
@@ -294,6 +293,10 @@ export default function DashboardScreen() {
                   <Text style={styles.cardSubtitle}>Last 7 days completion rate</Text>
                 </View>
               </View>
+              <View style={styles.percentageBadge}>
+                <TrendingUp color="#10B981" size={16} strokeWidth={3} />
+                <Text style={styles.percentageText}>+12%</Text>
+              </View>
             </View>
 
             <View style={styles.graphContainer}>
@@ -417,18 +420,16 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: '#FAFAFA',
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(255, 255, 255, 0.85)',
   },
   headerWrapper: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.03,
-    shadowRadius: 4,
-    elevation: 1,
+    borderBottomLeftRadius: 32,
+    borderBottomRightRadius: 32,
+    overflow: 'hidden',
   },
   safeArea: {
   },
@@ -437,18 +438,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 16,
-    paddingBottom: 20,
+    paddingVertical: 20,
+    paddingBottom: 50,
   },
   headerSubtitle: {
     fontSize: 11,
     fontWeight: '700',
+    color: 'rgba(255, 255, 255, 0.8)',
     letterSpacing: 1.5,
     marginBottom: 4,
   },
   headerTitle: {
     fontSize: 28,
     fontWeight: '700',
+    color: Colors.white,
   },
   headerButtons: {
     flexDirection: 'row',
@@ -456,16 +459,17 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   sparkleButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 12,
+    width: 52,
+    height: 52,
+    borderRadius: 16,
+    backgroundColor: Colors.white,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.04,
-    shadowRadius: 4,
-    elevation: 1,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 4,
   },
   scrollView: {
     flex: 1,
@@ -480,15 +484,15 @@ const styles = StyleSheet.create({
   },
   quoteCard: {
     backgroundColor: Colors.white,
-    borderRadius: 16,
+    borderRadius: 20,
     padding: 24,
-    marginBottom: 16,
+    marginBottom: 24,
     marginTop: 8,
-    shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 8,
-    elevation: 1,
+    shadowColor: '#735DFF',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    elevation: 4,
     position: 'relative' as const,
   },
   quoteHeader: {
@@ -522,7 +526,7 @@ const styles = StyleSheet.create({
     fontSize: 80,
     fontWeight: '300' as const,
     lineHeight: 80,
-    opacity: 0.15,
+    opacity: 0.25,
     fontFamily: 'Georgia',
     position: 'absolute' as const,
     top: -10,
@@ -532,7 +536,7 @@ const styles = StyleSheet.create({
     fontSize: 80,
     fontWeight: '300' as const,
     lineHeight: 80,
-    opacity: 0.15,
+    opacity: 0.25,
     fontFamily: 'Georgia',
     position: 'absolute' as const,
     bottom: -10,
@@ -547,6 +551,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     letterSpacing: 0.3,
     fontFamily: 'Quicksand',
+    textShadowColor: 'rgba(0, 0, 0, 0.08)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
   },
   quoteStats: {
     flexDirection: 'row',
@@ -597,21 +604,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 1,
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
     zIndex: 10,
   },
   largeCard: {
     backgroundColor: Colors.white,
-    borderRadius: 16,
+    borderRadius: 20,
     padding: CARD_PADDING,
     marginBottom: 16,
-    shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 8,
-    elevation: 1,
+    shadowColor: '#735DFF',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    elevation: 4,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -626,9 +633,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cardIcon: {
-    width: 44,
-    height: 44,
-    borderRadius: 12,
+    width: 48,
+    height: 48,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -642,6 +649,20 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.textSecondary,
     fontWeight: '500',
+  },
+  percentageBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 8,
+  },
+  percentageText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#10B981',
   },
   graphContainer: {
     alignItems: 'center',
@@ -741,6 +762,59 @@ const styles = StyleSheet.create({
     minWidth: 24,
     textAlign: 'right',
   },
+  metricsGrid: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 12,
+  },
+  metricCard: {
+    flex: 1,
+    backgroundColor: Colors.white,
+    borderRadius: 20,
+    padding: 20,
+    alignItems: 'center',
+    shadowColor: '#735DFF',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    elevation: 4,
+  },
+  metricIcon: {
+    width: 64,
+    height: 64,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  metricValue: {
+    fontSize: 32,
+    fontWeight: '700',
+    color: Colors.text,
+    marginBottom: 6,
+  },
+  metricLabel: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  metricBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 8,
+  },
+  metricBadgeText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#10B981',
+  },
+
   tasksList: {
     gap: 20,
   },
