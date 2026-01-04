@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Platform } from 'react-native';
-import { Sparkles, CheckSquare, Target, Folder } from 'lucide-react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Home, CheckSquare, Target, FolderKanban } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useTheme } from '@/contexts/ThemeContext';
+import Colors from '@/constants/colors';
 
 interface CustomTabBarProps {
   state: any;
@@ -12,18 +12,17 @@ interface CustomTabBarProps {
 
 export default function CustomTabBar({ state, descriptors, navigation }: CustomTabBarProps) {
   const insets = useSafeAreaInsets();
-  const { colors: themeColors } = useTheme();
 
   const icons = {
-    'index': Sparkles,
+    'index': Home,
     'tasks': CheckSquare,
     'goals': Target,
-    'projects': Folder,
+    'projects': FolderKanban,
   };
 
   return (
     <View style={styles.outerContainer}>
-      <View style={[styles.container, { paddingBottom: Math.max(insets.bottom, 12), backgroundColor: '#FFFFFF' }]}>
+      <View style={[styles.container, { paddingBottom: Math.max(insets.bottom, 8) }]}>
         <View style={styles.tabBar}>
           {state.routes.map((route: any, index: number) => {
             const isFocused = state.index === index;
@@ -49,17 +48,16 @@ export default function CustomTabBar({ state, descriptors, navigation }: CustomT
                 key={route.key}
                 onPress={onPress}
                 style={styles.tab}
-                activeOpacity={0.7}
+                activeOpacity={0.6}
               >
                 <View style={[
                   styles.tabIconContainer,
-                  isFocused && { backgroundColor: `${themeColors.primary}18` }
+                  isFocused && styles.tabIconContainerActive
                 ]}>
                   <Icon 
-                    color={isFocused ? themeColors.primary : '#9CA3AF'} 
-                    size={24}
-                    strokeWidth={isFocused ? 2.5 : 2}
-                    fill={isFocused ? `${themeColors.primary}25` : 'none'}
+                    color={isFocused ? Colors.white : Colors.textTertiary} 
+                    size={22}
+                    strokeWidth={2}
                   />
                 </View>
               </TouchableOpacity>
@@ -74,32 +72,26 @@ export default function CustomTabBar({ state, descriptors, navigation }: CustomT
 const styles = StyleSheet.create({
   outerContainer: {
     position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+    bottom: 16,
+    left: 20,
+    right: 20,
     backgroundColor: 'transparent',
   },
   container: {
-    backgroundColor: '#FFFFFF',
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(0, 0, 0, 0.04)',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 12,
+    backgroundColor: Colors.white,
+    borderRadius: 24,
+    shadowColor: Colors.shadowColor,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
     elevation: 8,
-    ...Platform.select({
-      web: {
-        boxShadow: '0 -2px 16px rgba(0, 0, 0, 0.04)',
-      },
-    }),
   },
   tabBar: {
     flexDirection: 'row',
-    height: 60,
+    height: 64,
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingHorizontal: 24,
+    paddingHorizontal: 8,
     paddingTop: 8,
   },
   tab: {
@@ -111,9 +103,11 @@ const styles = StyleSheet.create({
   tabIconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 52,
-    height: 52,
-    borderRadius: 16,
-    transition: 'all 0.2s ease',
+    width: 48,
+    height: 48,
+    borderRadius: 14,
+  },
+  tabIconContainerActive: {
+    backgroundColor: Colors.primary,
   },
 });

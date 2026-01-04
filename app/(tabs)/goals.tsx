@@ -315,12 +315,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   topBarBackground: {
-    borderBottomLeftRadius: 32,
-    borderBottomRightRadius: 32,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.2,
-    shadowRadius: 16,
-    elevation: 8,
+    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 24,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 4,
   },
   safeArea: {
     paddingHorizontal: 20,
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerTitle: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: '700',
     color: Colors.white,
   },
@@ -381,15 +381,10 @@ const styles = StyleSheet.create({
   },
   tabContainer: {
     flexDirection: 'row',
-    backgroundColor: Colors.white,
-    borderRadius: 16,
+    backgroundColor: Colors.softPurple,
+    borderRadius: 14,
     padding: 4,
     marginBottom: 20,
-    shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    elevation: 2,
   },
   tab: {
     flex: 1,
@@ -420,14 +415,14 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   goalCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 24,
-    padding: 24,
+    backgroundColor: Colors.white,
+    borderRadius: 20,
+    padding: 20,
     shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
   },
 
   cardTopSection: {
@@ -438,12 +433,12 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   iconContainer: {
-    width: 56,
-    height: 56,
-    borderRadius: 16,
+    width: 48,
+    height: 48,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 16,
+    marginRight: 12,
     backgroundColor: Colors.softPurple,
   },
   goalTitleContainer: {
@@ -452,11 +447,10 @@ const styles = StyleSheet.create({
   },
 
   goalTitle: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '700',
     color: Colors.text,
     marginBottom: 8,
-    letterSpacing: 0.3,
   },
   targetBadge: {
     flexDirection: 'row',
@@ -500,9 +494,9 @@ const styles = StyleSheet.create({
   },
   statsSection: {
     flexDirection: 'row',
-    backgroundColor: '#F8F8F8',
-    borderRadius: 16,
-    padding: 16,
+    backgroundColor: Colors.softPurple,
+    borderRadius: 14,
+    padding: 14,
   },
   statBox: {
     flex: 1,

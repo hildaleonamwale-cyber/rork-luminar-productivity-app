@@ -1,16 +1,19 @@
 export default {
   white: '#FFFFFF',
-  background: '#FFF9F7',
-  softPurple: '#FFF3F0',
+  background: '#F8F9FC',
+  cardBg: '#FFFFFF',
+  softPurple: '#F3F4F6',
   primary: '#DEA193',
-  primaryLight: '#F2C9C0',
-  primaryPastel: '#F5DCD7',
+  primaryLight: '#F2D4CC',
+  primaryPastel: '#F8E8E4',
   secondary: '#E8B5A8',
   accent: '#F7D4C9',
-  text: '#2D2D2D',
-  textSecondary: '#8B8B8B',
-  shadowColor: '#DEA193',
-  border: '#F5E6E3',
+  text: '#1A1A1A',
+  textSecondary: '#6B7280',
+  textTertiary: '#9CA3AF',
+  shadowColor: '#000000',
+  border: '#E5E7EB',
+  borderLight: '#F3F4F6',
   
   categoryColors: {
     work: '#DEA193',
@@ -19,7 +22,7 @@ export default {
     learning: '#A8C9D4',
   },
   
-  success: '#B8D4A8',
-  warning: '#F5C99B',
-  error: '#E8A5A0',
+  success: '#10B981',
+  warning: '#F59E0B',
+  error: '#EF4444',
 };
