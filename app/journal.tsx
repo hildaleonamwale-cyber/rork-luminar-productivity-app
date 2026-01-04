@@ -101,12 +101,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   topBarBackground: {
-    borderBottomLeftRadius: 32,
-    borderBottomRightRadius: 32,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.2,
-    shadowRadius: 16,
-    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.03,
+    shadowRadius: 4,
+    elevation: 1,
   },
   safeArea: {
     paddingHorizontal: 20,

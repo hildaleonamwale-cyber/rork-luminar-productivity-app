@@ -1,14 +1,14 @@
 export default {
   white: '#FFFFFF',
-  background: '#FAFBFC',
+  background: '#F8F9FA',
   softPeach: '#FFF5F3',
   primary: '#dea193',
   secondary: '#e8b5aa',
-  accent: '#d18a7a',
-  text: '#2C2C2C',
+  accent: '#f5c7be',
+  text: '#1F2937',
   textSecondary: '#6B7280',
-  shadowColor: '#dea193',
-  border: '#F0F0F0',
+  shadowColor: '#000000',
+  border: '#F3F4F6',
   
   categoryColors: {
     work: '#dea193',
