@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
   ImageBackground,
+  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { 
@@ -149,23 +150,24 @@ export default function DashboardScreen() {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       {backgroundComponent}
-      <View style={[styles.headerWrapper, { backgroundColor: themeColors.primary }]}>
-        <SafeAreaView edges={['top']} style={[styles.safeArea, { backgroundColor: themeColors.primary }]}>
-          <View style={[styles.header, { backgroundColor: themeColors.primary }]}>
+      <View style={[styles.headerWrapper, { backgroundColor: '#FFFFFF' }]}>
+        <SafeAreaView edges={['top']} style={[styles.safeArea, { backgroundColor: '#FFFFFF' }]}>
+          <View style={[styles.header, { backgroundColor: '#FFFFFF' }]}>
             <View>
-              <Text style={styles.headerSubtitle}>ANALYTICS DASHBOARD</Text>
-              <Text style={styles.headerTitle}>{getGreeting()}, {userName || 'User'}</Text>
+              <Text style={[styles.headerSubtitle, { color: Colors.textSecondary }]}>ANALYTICS DASHBOARD</Text>
+              <Text style={[styles.headerTitle, { color: Colors.text }]}>{getGreeting()}, {userName || 'User'}</Text>
             </View>
             <View style={styles.headerButtons}>
               <TouchableOpacity 
-                style={[styles.sparkleButton, { backgroundColor: Colors.white }]}
+                style={[styles.sparkleButton, { backgroundColor: `${themeColors.primary}15` }]}
                 onPress={() => router.push('/settings')}
               >
                 <Sparkles color={themeColors.primary} size={24} strokeWidth={2.5} fill="none" />
               </TouchableOpacity>
               <TouchableOpacity 
-                style={[styles.sparkleButton, { backgroundColor: Colors.white }]}
+                style={[styles.sparkleButton, { backgroundColor: `${themeColors.primary}15` }]}
                 onPress={() => router.push('/journal')}
               >
                 <BookOpen color={themeColors.primary} size={24} strokeWidth={2.5} fill="none" />

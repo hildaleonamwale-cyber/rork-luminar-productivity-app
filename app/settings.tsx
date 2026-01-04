@@ -25,6 +25,7 @@ import {
 import { useTheme } from '@/contexts/ThemeContext';
 import { useOnboarding } from '@/contexts/OnboardingContext';
 import ColorPicker from '@/components/ColorPicker';
+import Colors from '@/constants/colors';
 
 export default function SettingsScreen() {
   const router = useRouter();
@@ -53,14 +54,14 @@ export default function SettingsScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <Stack.Screen
         options={{
           headerShown: false,
         }}
       />
 
-      <View style={[styles.topBarBackground, { backgroundColor: colors.primary, shadowColor: colors.primary }]}>
+      <View style={[styles.topBarBackground, { backgroundColor: '#FFFFFF', shadowColor: '#000' }]}>
         <SafeAreaView edges={['top']} style={styles.safeArea}>
           <View style={styles.header}>
             <TouchableOpacity
@@ -68,9 +69,9 @@ export default function SettingsScreen() {
               onPress={() => router.back()}
               activeOpacity={0.7}
             >
-              <ChevronLeft color="#FFFFFF" size={28} strokeWidth={2.5} />
+              <ChevronLeft color={colors.primary} size={28} strokeWidth={2.5} />
             </TouchableOpacity>
-            <Text style={styles.headerTitle}>Settings</Text>
+            <Text style={[styles.headerTitle, { color: Colors.text }]}>Settings</Text>
             <View style={styles.headerSpacer} />
           </View>
         </SafeAreaView>

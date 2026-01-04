@@ -8,6 +8,7 @@ import {
   Modal,
   Pressable,
   Animated,
+  StatusBar,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -316,18 +317,19 @@ export default function TasksScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.calendarBackground, { backgroundColor: themeColors.primary, shadowColor: themeColors.primary }]}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+      <View style={[styles.calendarBackground, { backgroundColor: '#FFFFFF', shadowColor: '#000' }]}>
         <SafeAreaView edges={['top']} style={styles.safeArea}>
           <View style={styles.header}>
             <View style={styles.monthSelector}>
               <TouchableOpacity onPress={() => changeMonth(-1)} activeOpacity={0.7}>
-                <ChevronLeft color={Colors.white} size={24} fill="none" strokeWidth={2.5} />
+                <ChevronLeft color={Colors.text} size={24} fill="none" strokeWidth={2.5} />
               </TouchableOpacity>
-              <Text style={styles.monthText}>
+              <Text style={[styles.monthText, { color: Colors.text }]}>
                 {selectedDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
               </Text>
               <TouchableOpacity onPress={() => changeMonth(1)} activeOpacity={0.7}>
-                <ChevronRight color={Colors.white} size={24} fill="none" strokeWidth={2.5} />
+                <ChevronRight color={Colors.text} size={24} fill="none" strokeWidth={2.5} />
               </TouchableOpacity>
             </View>
           </View>
@@ -345,14 +347,14 @@ export default function TasksScreen() {
               return (
                 <TouchableOpacity
                   key={index}
-                  style={[styles.dateItem, isSelected && styles.dateItemSelected]}
+                  style={[styles.dateItem, isSelected && [styles.dateItemSelected, { backgroundColor: themeColors.primary }]]}
                   onPress={() => setSelectedDate(date)}
                   activeOpacity={0.7}
                 >
-                  <Text style={[styles.dateDay, isSelected && styles.dateTextSelected, !isSelected && { color: themeColors.primary }]}>
+                  <Text style={[styles.dateDay, isSelected && styles.dateTextSelected, !isSelected && { color: Colors.text }]}>
                     {date.toLocaleDateString('en-US', { weekday: 'short' })}
                   </Text>
-                  <Text style={[styles.dateNumber, isSelected && styles.dateTextSelected, !isSelected && { color: themeColors.primary }]}>
+                  <Text style={[styles.dateNumber, isSelected && styles.dateTextSelected, !isSelected && { color: Colors.text }]}>
                     {date.getDate()}
                   </Text>
                   {isToday && !isSelected && <View style={[styles.todayDot, { backgroundColor: themeColors.primary }]} />}

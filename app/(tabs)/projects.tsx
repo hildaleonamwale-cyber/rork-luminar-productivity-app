@@ -8,6 +8,7 @@ import {
   Animated,
   Modal,
   Pressable,
+  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Plus, FolderKanban, TrendingUp, Edit3, X } from 'lucide-react-native';
@@ -98,28 +99,29 @@ export default function ProjectsScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.topBarBackground, { backgroundColor: themeColors.primary, shadowColor: themeColors.primary }]}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+      <View style={[styles.topBarBackground, { backgroundColor: '#FFFFFF', shadowColor: '#000' }]}>
         <SafeAreaView edges={['top']} style={styles.safeArea}>
           <View style={styles.header}>
             <View style={styles.titleRow}>
-              <Text style={styles.headerTitle}>Projects</Text>
+              <Text style={[styles.headerTitle, { color: Colors.text }]}>Projects</Text>
               <TouchableOpacity
                 style={styles.addButtonHeader}
                 onPress={() => router.push('/add-project')}
                 activeOpacity={0.7}
               >
-                <Plus color={Colors.white} size={24} strokeWidth={2.5} />
+                <Plus color={themeColors.primary} size={24} strokeWidth={2.5} />
               </TouchableOpacity>
             </View>
             <View style={styles.statsRow}>
               <View style={styles.statItem}>
-                <Text style={styles.statValue}>{activeProjects.length}</Text>
-                <Text style={styles.statLabel}>Active Projects</Text>
+                <Text style={[styles.statValue, { color: themeColors.primary }]}>{activeProjects.length}</Text>
+                <Text style={[styles.statLabel, { color: Colors.textSecondary }]}>Active Projects</Text>
               </View>
               <View style={styles.statDivider} />
               <View style={styles.statItem}>
-                <Text style={styles.statValue}>{overallProgress}%</Text>
-                <Text style={styles.statLabel}>Overall Progress</Text>
+                <Text style={[styles.statValue, { color: themeColors.primary }]}>{overallProgress}%</Text>
+                <Text style={[styles.statLabel, { color: Colors.textSecondary }]}>Overall Progress</Text>
               </View>
             </View>
           </View>
