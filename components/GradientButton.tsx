@@ -25,7 +25,7 @@ export default function GradientButton({ title, onPress, style, disabled }: Grad
         colors={[themeColors.primary, themeColors.secondary]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
-        style={styles.gradient}
+        style={[styles.gradient, disabled && styles.gradientDisabled]}
       >
         <Text style={styles.text}>{title}</Text>
       </LinearGradient>
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     overflow: 'hidden',
     shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
     shadowRadius: 8,
-    elevation: 4,
+    elevation: 3,
   },
   gradient: {
     paddingVertical: 16,
@@ -49,9 +49,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  gradientDisabled: {
+    opacity: 0.5,
+  },
   text: {
     color: Colors.white,
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
+    letterSpacing: 0.3,
   },
 });

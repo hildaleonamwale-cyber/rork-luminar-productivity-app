@@ -27,7 +27,7 @@ export default function DonutChart({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={Colors.softPurple}
+          stroke={Colors.border}
           strokeWidth={strokeWidth}
           fill="none"
         />
@@ -62,8 +62,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   percentage: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: '700',
     color: Colors.text,
+    letterSpacing: -0.5,
   },
 });
