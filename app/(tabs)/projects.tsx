@@ -425,7 +425,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 16,
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
   },
 
   projectInfo: {
@@ -468,7 +468,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 12,
     gap: 5,
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
   },
   progressBadgeText: {
     fontSize: 14,
@@ -478,7 +478,7 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 8,
     overflow: 'hidden',
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
   },
   progressFill: {
     height: '100%',
@@ -510,7 +510,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 10,
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
   },
   statusText: {
     fontSize: 12,

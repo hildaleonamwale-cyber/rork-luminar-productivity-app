@@ -27,7 +27,7 @@ export default function DonutChart({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={Colors.softPurple}
+          stroke={Colors.softPeach}
           strokeWidth={strokeWidth}
           fill="none"
         />

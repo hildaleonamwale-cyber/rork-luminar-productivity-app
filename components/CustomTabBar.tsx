@@ -63,7 +63,7 @@ export default function CustomTabBar({ state, descriptors, navigation }: CustomT
                         <Icon color="#FFFFFF" size={32} strokeWidth={2.8} fill="none" />
                       </View>
                     </LinearGradient>
-                    <View style={styles.middleButtonRing} />
+                    <View style={[styles.middleButtonRing, { borderColor: `${themeColors.primary}15` }]} />
                   </TouchableOpacity>
                 </View>
               );
@@ -78,7 +78,7 @@ export default function CustomTabBar({ state, descriptors, navigation }: CustomT
               >
                 <View style={[
                   styles.tabIconContainer,
-                  isFocused && { backgroundColor: `${themeColors.primary}14` }
+                  isFocused && { backgroundColor: `${themeColors.primary}12` }
                 ]}>
                   <Icon 
                     color={isFocused ? themeColors.primary : '#667085'} 
@@ -110,13 +110,13 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -8 },
-    shadowOpacity: 0.12,
-    shadowRadius: 24,
-    elevation: 12,
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.04,
+    shadowRadius: 12,
+    elevation: 4,
     ...Platform.select({
       web: {
-        boxShadow: '0 -8px 32px rgba(0, 0, 0, 0.08)',
+        boxShadow: '0 -2px 16px rgba(0, 0, 0, 0.04)',
       },
     }),
   },
@@ -142,14 +142,10 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     position: 'relative',
   },
-  tabIconContainerActive: {
-    backgroundColor: 'rgba(255, 77, 12, 0.08)',
-  },
   activeDot: {
     width: 4,
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#FF4D0C',
     marginTop: 6,
   },
   middleButtonContainer: {
@@ -164,13 +160,13 @@ const styles = StyleSheet.create({
     borderRadius: 34,
     position: 'relative',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.4,
-    shadowRadius: 20,
-    elevation: 12,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 8,
     ...Platform.select({
       web: {
-        boxShadow: '0 8px 32px rgba(255, 77, 12, 0.35)',
+        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.12)',
       },
     }),
   },
@@ -191,7 +187,6 @@ const styles = StyleSheet.create({
     bottom: -6,
     borderRadius: 40,
     borderWidth: 2,
-    borderColor: 'rgba(255, 77, 12, 0.15)',
   },
   iconGlow: {
     alignItems: 'center',

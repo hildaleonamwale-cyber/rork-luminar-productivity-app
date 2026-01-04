@@ -789,7 +789,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   input: {
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
@@ -832,7 +832,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   fieldInput: {
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
     borderRadius: 12,
     padding: 16,
     marginBottom: 20,
@@ -869,7 +869,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cancelButton: {
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
   },
   cancelButtonText: {
     fontSize: 16,
@@ -902,13 +902,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 16,
     borderBottomWidth: 1,
-    borderBottomColor: Colors.softPurple,
+    borderBottomColor: Colors.softPeach,
   },
   backButton: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -992,7 +992,7 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 340,
     borderWidth: 2,
-    borderColor: Colors.softPurple,
+    borderColor: Colors.softPeach,
     shadowColor: Colors.primary,
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.15,

@@ -446,7 +446,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 16,
-    backgroundColor: Colors.softPurple,
+    backgroundColor: Colors.softPeach,
   },
   goalTitleContainer: {
     flex: 1,
