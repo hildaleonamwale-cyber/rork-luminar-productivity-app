@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Platform } from 'react-native';
-import { Sparkles, CheckSquare, Target, FolderKanban } from 'lucide-react-native';
+import { Sparkles, CheckSquare, Target, Folder } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -18,7 +18,7 @@ export default function CustomTabBar({ state, descriptors, navigation }: CustomT
     'index': Sparkles,
     'tasks': CheckSquare,
     'goals': Target,
-    'projects': FolderKanban,
+    'projects': Folder,
   };
 
   return (
