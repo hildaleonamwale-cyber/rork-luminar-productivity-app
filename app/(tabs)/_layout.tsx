@@ -10,10 +10,11 @@ export default function TabLayout() {
         headerShown: false,
       }}
     >
-      <Tabs.Screen name="index" />
       <Tabs.Screen name="tasks" />
       <Tabs.Screen name="goals" />
+      <Tabs.Screen name="index" />
       <Tabs.Screen name="projects" />
+      <Tabs.Screen name="pomodoro" />
     </Tabs>
   );
 }

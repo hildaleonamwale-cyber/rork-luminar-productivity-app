@@ -24,8 +24,6 @@ export interface Goal {
   deleted?: boolean;
   emoji?: string;
   color?: string;
-  targetValue?: number;
-  metric?: string;
 }
 
 export interface Project {
@@ -37,7 +35,6 @@ export interface Project {
   emoji?: string;
   color?: string;
   notes?: string;
-  tasks?: Task[];
 }
 
 export interface JournalEntry {
