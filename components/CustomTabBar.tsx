@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
-import { CheckSquare, Target, BookText, BookOpen, Wallet } from 'lucide-react-native';
+import { CheckSquare, Target, FolderKanban, BookOpen, Wallet } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -18,7 +18,7 @@ export default function CustomTabBar({ state, descriptors: _descriptors, navigat
     'tasks': CheckSquare,
     'goals': Target,
     'journal': BookOpen,
-    'projects': BookText,
+    'projects': FolderKanban,
     'money': Wallet,
   };
 
