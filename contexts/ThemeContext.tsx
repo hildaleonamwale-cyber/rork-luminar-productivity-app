@@ -18,7 +18,7 @@ export interface ThemeColors {
 }
 
 export const THEME_PRESETS: ThemeColors[] = [
-  { primary: '#FF4D0C', secondary: '#FF8A5B', accent: '#FFA8AF' },
+  { primary: '#DEA193', secondary: '#E8B4A8', accent: '#F5D8D3' },
   { primary: '#735DFF', secondary: '#9B8BFF', accent: '#C6C9FF' },
   { primary: '#10B981', secondary: '#34D399', accent: '#6EE7B7' },
   { primary: '#F59E0B', secondary: '#FBBF24', accent: '#FCD34D' },
@@ -35,7 +35,7 @@ export const [ThemeContext, useTheme] = createContextHook(() => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    loadTheme();
+    void loadTheme();
   }, []);
 
   const loadTheme = async () => {
@@ -64,19 +64,19 @@ export const [ThemeContext, useTheme] = createContextHook(() => {
     const primary = `hsl(${hue}, 85%, 55%)`;
     const secondary = `hsl(${hue}, 80%, 65%)`;
     const accent = `hsl(${hue}, 75%, 75%)`;
-    setTheme({ primary, secondary, accent });
+    void setTheme({ primary, secondary, accent });
   };
 
   const setHexColor = (hex: string) => {
-    setTheme({ ...colors, primary: hex, secondary: hex, accent: hex });
+    void setTheme({ ...colors, primary: hex, secondary: hex, accent: hex });
   };
 
   const setGradient = (gradient: GradientConfig) => {
-    setTheme({ ...colors, gradient });
+    void setTheme({ ...colors, gradient });
   };
 
   const setBackgroundImage = (imageUrl: string) => {
-    setTheme({ ...colors, backgroundImage: imageUrl });
+    void setTheme({ ...colors, backgroundImage: imageUrl });
   };
 
   return {

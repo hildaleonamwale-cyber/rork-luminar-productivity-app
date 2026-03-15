@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ArrowLeft, Plus, Edit2 } from 'lucide-react-native';
+import { Plus, Edit2 } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import Card from '@/components/Card';
 import EmptyState from '@/components/EmptyState';
@@ -30,27 +30,21 @@ export default function JournalScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.topBarBackground, { backgroundColor: themeColors.primary, shadowColor: themeColors.primary }]}>
-        <SafeAreaView edges={['top']} style={styles.safeArea}>
-          <View style={styles.header}>
-            <TouchableOpacity
-              style={styles.backButton}
-              onPress={() => router.back()}
-              activeOpacity={0.7}
-            >
-              <ArrowLeft color={Colors.white} size={24} />
-            </TouchableOpacity>
-            <Text style={styles.headerTitle}>Journal</Text>
-            <TouchableOpacity
-              style={styles.addButtonHeader}
-              onPress={handleAdd}
-              activeOpacity={0.7}
-            >
-              <Plus color={Colors.white} size={24} />
-            </TouchableOpacity>
+      <SafeAreaView edges={['top']} style={styles.safeArea}>
+        <View style={styles.header}>
+          <View>
+            <Text style={styles.headerSubtitle}>JOURNAL</Text>
+            <Text style={styles.headerTitle}>Your Thoughts</Text>
           </View>
-        </SafeAreaView>
-      </View>
+          <TouchableOpacity
+            style={[styles.addButton, { backgroundColor: themeColors.primary }]}
+            onPress={handleAdd}
+            activeOpacity={0.8}
+          >
+            <Plus color={Colors.white} size={24} strokeWidth={2.5} />
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
 
       <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
         {entries.length === 0 ? (
@@ -77,7 +71,7 @@ export default function JournalScreen() {
                     onPress={() => handleEdit(entry.id)}
                     activeOpacity={0.7}
                   >
-                    <Edit2 color={themeColors.secondary} size={20} />
+                    <Edit2 color={themeColors.primary} size={20} strokeWidth={2.5} />
                   </TouchableOpacity>
                 </View>
                 {entry.title && <Text style={styles.entryTitle}>{entry.title}</Text>}
@@ -87,8 +81,6 @@ export default function JournalScreen() {
           </View>
         )}
       </ScrollView>
-
-
     </View>
   );
 }
@@ -98,42 +90,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  topBarBackground: {
-    borderBottomLeftRadius: 32,
-    borderBottomRightRadius: 32,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.2,
-    shadowRadius: 16,
-    elevation: 8,
-  },
   safeArea: {
-    paddingHorizontal: 20,
+    backgroundColor: Colors.background,
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 20,
-    marginBottom: 24,
-  },
-  backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+  },
+  headerSubtitle: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: Colors.textSecondary,
+    letterSpacing: 1.5,
+    marginBottom: 4,
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: '700',
-    color: Colors.white,
+    color: Colors.text,
   },
-  addButtonHeader: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  addButton: {
+    width: 48,
+    height: 48,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -144,19 +126,18 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 140,
   },
-  emptyCard: {
-    alignItems: 'center',
-    padding: 40,
-  },
-  emptyText: {
-    fontSize: 16,
-    color: Colors.textSecondary,
-  },
   entriesList: {
     gap: 16,
   },
   entryCard: {
     padding: 20,
+    backgroundColor: Colors.white,
+    borderRadius: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
   },
   entryHeader: {
     flexDirection: 'row',

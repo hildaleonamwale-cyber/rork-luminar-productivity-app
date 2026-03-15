@@ -12,9 +12,9 @@ export default function TabLayout() {
     >
       <Tabs.Screen name="tasks" />
       <Tabs.Screen name="goals" />
-      <Tabs.Screen name="index" />
+      <Tabs.Screen name="journal" />
       <Tabs.Screen name="projects" />
-      <Tabs.Screen name="pomodoro" />
+      <Tabs.Screen name="money" />
     </Tabs>
   );
 }
